@@ -46,6 +46,9 @@ if (stats.isDirectory()) {
     process.exit(1);
 }
 else if (stats.isFile()) {
+    const explicitOption = Object.values(options).filter(el => el);
+    if (!explicitOption.length)
+	Object.assign(options, {'-l': true, '-w': true, '-c': true});
     let out = ""
     const fileContent = fs.readFileSync(woOpt[0]).toString();
     const lines = fileContent.split('\n');
