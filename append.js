@@ -14,7 +14,7 @@ if (cmdArgs.length < 2) {
 
 for (const src of cmdArgs.slice(0, -1)) {
     if (!fs.existsSync(src)) {
-	console.log(`${bn}: cannot access ${cmdArgs[0]}: No such file or directory`);
+	console.log(`${bn}: cannot access ${src}: No such file or directory`);
 	process.exit(1);
     }
 
