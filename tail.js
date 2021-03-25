@@ -8,7 +8,7 @@ const bn = basename(process.argv[1], '.js');
 let n = 10;
 
 if (cmdArgs.length === 0) {
-    console.log('Usage: node tail.js FILE');
+    console.log('Usage: node tail.js [-n <number>] FILE');
     process.exit(1);
 }
 
