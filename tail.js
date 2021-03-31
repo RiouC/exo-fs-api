@@ -35,7 +35,10 @@ const parseOpt = (arr) => {
 
 // Array without options
 const woOpt = parseOpt(cmdArgs);
-
+if (woOpt.length !== 1) {
+    console.log('Usage: node tail.js [OPTION] FILE');
+    process.exit(1);
+}
 
 
 if (!fs.existsSync(woOpt[0])) {
@@ -51,10 +54,7 @@ if (stats.isDirectory()) {
 else if (stats.isFile()) {
     const fileContent = fs.readFileSync(woOpt[0]).toString();
     const lines = fileContent.split('\n');
-    for (let i = lines.length - options['-n'] -1; i < lines.length; i++) {
-	// TODO : remove last empty line in stdout
-	console.log(lines[i]);
-    }
+    console.log(lines.slice(- options['-n']).join('\n'));
 } else {
     console.log('Error');
     process.exit(1);
