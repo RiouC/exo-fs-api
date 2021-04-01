@@ -25,7 +25,8 @@ let options = {'-l': false,
 const parseOpt = (arr) => {
     let newArr = [];
     for (let arg of arr) {
-	if (Object.keys(options).includes(arg)) {
+	// if (Object.keys(options).includes(arg)) {
+	if (arg in options) {
 	    options[arg] = true;
 	} else {
 	    newArr.push(arg);
