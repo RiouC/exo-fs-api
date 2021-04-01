@@ -26,7 +26,7 @@ const parseOpt = (arr) => {
     let newArr = [];
     for (let arg of arr) {
 	// if (Object.keys(options).includes(arg)) {
-	if (arg in options) {
+	if (options.hasOwnProperty(arg)) {
 	    options[arg] = true;
 	} else {
 	    newArr.push(arg);
